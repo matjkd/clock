@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'ErbosDraco1stOpenNBPRegular';
+    src: url('erbos_draco_1st_open_nbp.eot');
+    src: url('erbos_draco_1st_open_nbp.eot') format('embedded-opentype'),
+         url('erbos_draco_1st_open_nbp.woff') format('woff'),
+         url('erbos_draco_1st_open_nbp.ttf') format('truetype'),
+         url('erbos_draco_1st_open_nbp.svg#ErbosDraco1stOpenNBPRegular') format('svg');
+}

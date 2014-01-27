@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'lcdphoneRegular';
+    src: url('lcdphone.eot');
+    src: url('lcdphone.eot') format('embedded-opentype'),
+         url('lcdphone.woff') format('woff'),
+         url('lcdphone.ttf') format('truetype'),
+         url('lcdphone.svg#lcdphoneRegular') format('svg');
+}

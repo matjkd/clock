@@ -175,8 +175,7 @@ ul li {
 
 #point {
     position: relative;
-    -moz-animation: mymove 1s ease infinite;
-    -webkit-animation: mymove 1s ease infinite;
+  
     padding-left: 10px;
     padding-right: 10px;
 }

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>jDigiClock - Digital Clock (HTC Hero inspired).</title>
+        <title>Clock.</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		
         <link rel="stylesheet" type="text/css" href="css/jquery.jdigiclock.css" />
@@ -37,15 +37,19 @@
 		
 		
         <div id="wrap">
-           
-            <div style="text-align: center;
-margin: 0 auto;
-width: 1000px;" id="digiclock"></div>
          
-		   
-		   
-		   
-		    <div class="clock">
+         <div id="clock1_wrap" style="border-top:1px solid #eee; display:block; text-align: center; margin: 0 auto; width: 1000px;">
+  	<div  id="digiclock1"></div>
+  	</div>
+
+
+ <div id="clock2_wrap" style="border-bottom:1px solid #eee; display:none; text-align: center; margin: 0 auto; width: 1000px;">
+  	<div  id="digiclock2">
+	</div>
+
+</div>
+
+<div class="clock">
 <div id="Date"></div>
   <ul>
       <li id="hours2"></li>
@@ -53,13 +57,11 @@ width: 1000px;" id="digiclock"></div>
       <li id="min"></li>
       
   </ul>
-  <div id="city">Paris</div>
+  <div id="city">Cardiff</div>
+
 </div>
-
-
-            </div>
-			
-	        <script type="text/javascript">
+	</div>		
+<script type="text/javascript">
 		
 	$(document).ready(function() {
 	// Create two variable with the names of the months and days in an array
@@ -97,7 +99,59 @@ width: 1000px;" id="digiclock"></div>
 	</script>
 	        <script type="text/javascript">
 	            $(document).ready(function() {
-	                $('#digiclock').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+	            	$(function() {
+	            	var clockgo = 1;
+	            	 $('.clock1').fadeIn(1500);
+	            
+					    startRefresh();
+					});
+					
+					function startRefresh() {
+					
+					    setTimeout(startRefresh,10000);
+					    
+					    if($('#clock1_wrap').is(":hidden")) {
+					    clockgo = 2;
+					    }
+					    
+					  	if($('#clock1_wrap').is(":hidden")) {
+					    clockgo = 1;
+					    }
+					    
+					    if( clockgo == 2) {
+					    
+					     $('#clock1_wrap').fadeIn(1500);
+					     $('#clock2_wrap').fadeOut(1500);
+					     $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					     
+					     
+					    }
+					    
+					   
+					     if( clockgo == 1) {
+					    
+					     $('#clock2_wrap').fadeIn(1500);
+					     $('#clock1_wrap').fadeOut(1500);
+					     $('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					     
+					     
+					    }
+					     
+					   					    
+					     
+					    
+					     
+					  
+					   
+						
+					   
+					   
+					   
+					    //$('#digiclock').fadeIn(1500);
+					}
+					
+	           
+	                
 	            });
 	        </script>
     </body>

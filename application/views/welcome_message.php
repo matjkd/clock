@@ -53,7 +53,7 @@ width: 1000px;" id="digiclock"></div>
       <li id="min"></li>
       
   </ul>
-  <div id="city">London</div>
+  <div id="city">London.</div>
 </div>
 
 

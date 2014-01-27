@@ -19,6 +19,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->dbutil();	
+		if (!$this->dbutil->database_exists('clock'))
+			{
+			  //create database..
+			  $this->dbforge->create_database('clock');
+			}
+		
+		
 		$this->load->view('welcome_message');
 	}
 }

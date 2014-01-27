@@ -111,7 +111,7 @@
 					function startRefresh() {
 						
 						
-					    setTimeout(startRefresh,10000);
+					    setTimeout(startRefresh,100000);
 					    
 					    if($('#clock1_wrap').is(':visible')) {
 					    $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});

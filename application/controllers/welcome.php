@@ -24,8 +24,10 @@ class Welcome extends CI_Controller {
 			{
 			  //create database..
 			  $this->dbforge->create_database('clock');
+			  
 			}
 		
+		$this->admin_model->update_tables();
 		
 		$this->load->view('welcome_message');
 	}

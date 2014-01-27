@@ -36,14 +36,14 @@
 		?>
 		
 		
-        <div id="wrap">
+        <div id="wrap" style="position: relative; width: 1000px; margin: auto;">
          
-         <div id="clock1_wrap" style="border-top:1px solid #eee; display:block; text-align: center; margin: 0 auto; width: 1000px;">
+         <div id="clock1_wrap" style="position:absolute; height:200px; border:0px solid #000; display:block;  text-align: center; margin: 0 auto; width: 1000px;">
   	<div  id="digiclock1"></div>
   	</div>
 
 
- <div id="clock2_wrap" style="border-bottom:1px solid #eee; display:none; text-align: center; margin: 0 auto; width: 1000px;">
+ <div id="clock2_wrap" style="position:absolute; height:200px; border:0px solid #e6f6d4; display:block; text-align: center; margin: 0 auto; width: 1000px;">
   	<div  id="digiclock2">
 	</div>
 
@@ -99,52 +99,57 @@
 	</script>
 	        <script type="text/javascript">
 	            $(document).ready(function() {
+	            		
 	            	$(function() {
-	            	var clockgo = 1;
-	            	 $('.clock1').fadeIn(1500);
-	            
-					    startRefresh();
+	            	$('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					$('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+	            	
+	            var clockgo;
+					startRefresh();
 					});
 					
 					function startRefresh() {
-					
+						
+						
 					    setTimeout(startRefresh,10000);
 					    
-					    if($('#clock1_wrap').is(":hidden")) {
-					    clockgo = 2;
-					    }
-					    
-					  	if($('#clock1_wrap').is(":hidden")) {
+					    if($('#clock1_wrap').is(':visible')) {
+					    $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					   //alert('clock1 is visible');
 					    clockgo = 1;
 					    }
 					    
+					  	if($('#clock2_wrap').is(':visible'))  {
+					  	$('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					  	// alert('clock2 is visible');
+					    clockgo = 2;
+					    }
+					    
+					    if( clockgo == 1) {
+					    
+					     $('#clock2_wrap').stop().fadeIn(1500).delay(1500);
+					     $('#clock1_wrap').stop().fadeOut(1500).delay(1500);
+					     
+					    // alert('1 activated');
+					     
+					    // $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					     
+					     
+					    }
+					    
+					   
 					    if( clockgo == 2) {
 					    
-					     $('#clock1_wrap').fadeIn(1500);
-					     $('#clock2_wrap').fadeOut(1500);
-					     $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					     $('#clock1_wrap').stop().fadeIn(1500).delay(1500);
+					     $('#clock2_wrap').stop().fadeOut(1500).delay(1500);
 					     
+					   //  alert('2 activated');
 					     
-					    }
-					    
-					   
-					     if( clockgo == 1) {
-					    
-					     $('#clock2_wrap').fadeIn(1500);
-					     $('#clock1_wrap').fadeOut(1500);
-					     $('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					    // $('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
 					     
 					     
 					    }
 					     
-					   					    
-					     
-					    
-					     
-					  
-					   
-						
-					   
 					   
 					   
 					    //$('#digiclock').fadeIn(1500);

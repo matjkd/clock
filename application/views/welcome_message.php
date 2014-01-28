@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Clock.</title>
+        <title><Clock</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		
         <link rel="stylesheet" type="text/css" href="css/jquery.jdigiclock.css" />
@@ -14,6 +14,14 @@
     </head>
     <body>
 		<?php
+		
+		foreach($country1 as $row):
+			
+			$timezone = $row->timezone;
+			$city = $row->city;
+			$weather = $row->weather_code;
+			
+		endforeach;
 		
 		function get_timezone_offset($remote_tz, $origin_tz = null) {
 		    if($origin_tz === null) {
@@ -30,7 +38,7 @@
 		    return $offset;
 		}
 		
-		$offset = get_timezone_offset('Europe/London', NULL);
+		$offset = get_timezone_offset($timezone, NULL);
 		
 		
 		?>
@@ -57,7 +65,7 @@
       <li id="min"></li>
       
   </ul>
-  <div id="city"><a href="<?=base_url()?>">Cardiff</a></div>
+  <div id="city"><a href="<?=base_url()?>"><?=$city?></a></div>
 
 </div>
 	</div>		
@@ -101,8 +109,8 @@
 	            $(document).ready(function() {
 	            		
 	            	$(function() {
-	            	$('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
-					$('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+	            	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>"});
+					$('#digiclock2').jdigiclock({weatherLocationCode: "<?=$weather?>"});
 	            	
 	            var clockgo;
 					startRefresh();
@@ -114,13 +122,13 @@
 					    setTimeout(startRefresh,100000);
 					    
 					    if($('#clock1_wrap').is(':visible')) {
-					    $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					    $('#digiclock2').jdigiclock({weatherLocationCode: "<?=$weather?>"});
 					   //alert('clock1 is visible');
 					    clockgo = 1;
 					    }
 					    
 					  	if($('#clock2_wrap').is(':visible'))  {
-					  	$('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
+					  	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>"});
 					  	// alert('clock2 is visible');
 					    clockgo = 2;
 					    }

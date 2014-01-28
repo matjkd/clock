@@ -38,5 +38,26 @@ class Admin_model extends CI_Model {
 	
 	}
 	
+	 function edit_field($field, $value) {
+        $user_admin_data = array(
+            $field => $value
+        );
+        $this->db->where('id',1);
+        $update = $this->db->update('clockadmin', $user_admin_data);
+        return $update;
+    }
+	 
+	 function get_city($id) {
+	 $this->db->where('id', $id);
+	 	return $this -> db -> get('countries') -> result();			
+	 }
+	
+	
+	function get_admin() {
+			 $this->db->where('id', 1);
+	 	return $this -> db -> get('clockadmin') -> result();			
+		
+			}
+		
 
 }

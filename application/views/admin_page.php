@@ -25,6 +25,14 @@
 			<div><?=form_dropdown('City1', $citiesarray)?></div>
 
 		</div>
+		<div>
+		<?=form_submit('submit', 'Submit')?>
+		
+		</div>
 		<?=form_close()?>
+		
+		<div>
+		
+		</div>
 	</body>
 </html>

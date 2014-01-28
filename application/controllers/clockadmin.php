@@ -31,9 +31,15 @@ class Clockadmin extends CI_Controller {
 	}
 	
 	public function update_clock($clock_number, $city) {
+		$city1 = $this->input->post('City1');
+		$this->admin_model->edit_field('country1', $city1);
 		
-		echo "update clock";
+		
+		
+		redirect('/');
 	}
+	
+	
 }
 
 /* End of file welcome.php */

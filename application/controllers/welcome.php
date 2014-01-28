@@ -27,8 +27,15 @@ class Welcome extends CI_Controller {
 			  
 			}
 		
+		$admin = $this->admin_model->get_admin();
 		
 		
+		foreach($admin as $row):
+			
+			$data['country1'] = $this->admin_model->get_city($row->country1);
+			
+		endforeach;
+		$this -> load -> vars($data);
 		$this->load->view('welcome_message');
 	}
 	

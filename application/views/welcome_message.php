@@ -50,7 +50,7 @@
 </div>
 
 <div class="clock">
-<a href="<?=base_url()?>clockadmin"><div id="Date"></div></a>
+<a href="<?=base_url()?>index.php/clockadmin"><div id="Date"></div></a>
   <ul>
       <li id="hours2"></li>
       <li id="point">:</li>

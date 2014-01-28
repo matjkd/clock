@@ -12,6 +12,6 @@
       
     </head>
     <body>
-		test
+		<a href="<?=base_url()?>">Back to Clock</a>
     </body>
 </html>

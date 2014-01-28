@@ -22,6 +22,9 @@ class Clockadmin extends CI_Controller {
 		$this->load->dbutil();	
 		$this->admin_model->update_countries();
 		
+		$data['cities'] = $this->admin_model->get_cities();
+		
+		$this -> load -> vars($data);
 		$this->load->view('admin_page');
 	
 	

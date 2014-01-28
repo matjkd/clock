@@ -9,20 +9,20 @@
 
 	</head>
 	<body>
-		<a href="<?=base_url() ?>">Back to Clock</a>
+		<a href="<?=base_url() ?>">Back to Clock...</a>
 		
 <?=form_open('clockadmin/update_clock')?>
 		<div>
 		<?php
-		$cities = array(
 		
-		'1' => 'London',
-		'2' => 'Paris'
 		
-		);
-		
+		foreach($cities as $row):
+			
+			$citiesarray[$row->id] = $row->city;
+			
+		endforeach;
 		?>
-			<div><?=form_dropdown('City1', $cities)?></div>
+			<div><?=form_dropdown('City1', $citiesarray)?></div>
 
 		</div>
 		<?=form_close()?>

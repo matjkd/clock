@@ -23,10 +23,20 @@ class Admin_model extends CI_Model {
 	
 	$this->db->query("INSERT INTO `countries` (`id`, `city`, `weather_code`, `timezone`)
 	VALUES
-		(1,'London','EUR|UK|UK001|LONDON','Europe/London');
+		(1,'London','EUR|UK|UK001|LONDON','Europe/London'),
+		(2,'Paris','EUR|FR|FR012|PARIS','Europe/Brussels'),
+		(3,'New York','NAM|US|NY|NEW YORK','America/New_York');
 	
 	");
 		
 	}
+	
+	
+	function get_cities() {
+	
+	return $this -> db -> get('countries') -> result();		
+	
+	}
+	
 
 }

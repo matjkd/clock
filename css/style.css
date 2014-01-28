@@ -1,18 +1,9 @@
-html, body {
-	background: #eaeaea; /* Old browsers */
-	background: -moz-linear-gradient(top,  #eaeaea 0%, #666666 13%, #474747 14%, #2c2c2c 29%, #000000 66%, #131313 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeaea), color-stop(13%,#666666), color-stop(14%,#474747), color-stop(29%,#2c2c2c), color-stop(66%,#000000), color-stop(100%,#131313)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #eaeaea 0%,#666666 13%,#474747 14%,#2c2c2c 29%,#000000 66%,#131313 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #eaeaea 0%,#666666 13%,#474747 14%,#2c2c2c 29%,#000000 66%,#131313 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #eaeaea 0%,#666666 13%,#474747 14%,#2c2c2c 29%,#000000 66%,#131313 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #eaeaea 0%,#666666 13%,#474747 14%,#2c2c2c 29%,#000000 66%,#131313 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
-	
-	
-	
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
+html { 
+  background: url(backgroundbig.jpg) no-repeat top center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {

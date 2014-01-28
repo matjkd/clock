@@ -20,10 +20,16 @@ class Clockadmin extends CI_Controller {
 	public function index()
 	{
 		$this->load->dbutil();	
-		$this->admin_model->update_tables();
+		$this->admin_model->update_countries();
+		
 		$this->load->view('admin_page');
 	
 	
+	}
+	
+	public function update_clock($clock_number, $city) {
+		
+		echo "update clock";
 	}
 }
 

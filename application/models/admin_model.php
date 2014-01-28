@@ -6,7 +6,7 @@ class Admin_model extends CI_Model {
         parent::__construct();
     }
 
-    function update_tables() {
+    function update_countries() {
     	
 	$this->db->query("DROP TABLE IF EXISTS `countries`");
 	
@@ -23,7 +23,7 @@ class Admin_model extends CI_Model {
 	
 	$this->db->query("INSERT INTO `countries` (`id`, `city`, `weather_code`, `timezone`)
 	VALUES
-		(1,'London2','EUR|UK|UK001|LONDON','Europe/London');
+		(1,'London','EUR|UK|UK001|LONDON','Europe/London');
 	
 	");
 		

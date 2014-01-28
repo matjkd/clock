@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Clockadmin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,24 +20,11 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->dbutil();	
-		if (!$this->dbutil->database_exists('clock'))
-			{
-			  //create database..
-			  $this->dbforge->create_database('clock');
-			  
-			}
-		
-		
-		
-		$this->load->view('welcome_message');
+		$this->admin_model->update_tables();
+		$this->load->view('admin_page');
+	
+	
 	}
-	
-	
-	public function test()
-	{
-	echo "test";	
-	}
-	
 }
 
 /* End of file welcome.php */

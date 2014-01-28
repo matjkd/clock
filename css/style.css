@@ -145,6 +145,10 @@ td pre {
     text-shadow: 0 0 5px #00aeef;
 	color:#fff;
 }
+ a {
+
+text-decoration:none;
+}
 
 #city {
 font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
@@ -152,6 +156,10 @@ font-size: 66px;
 text-align: center;
 text-shadow: 0 0 5px #00aeef;
  color: #00aeef;
+}
+#city a {
+
+text-decoration:none;
 }
 
 ul {

@@ -57,7 +57,7 @@
       <li id="min"></li>
       
   </ul>
-  <div id="city">Cardiff</div>
+  <div id="city"><a href="<?=base_url()?>">Cardiff</a></div>
 
 </div>
 	</div>		

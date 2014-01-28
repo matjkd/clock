@@ -25,10 +25,27 @@ class Admin_model extends CI_Model {
 	VALUES
 		(1,'London','EUR|UK|UK001|LONDON','Europe/London'),
 		(2,'Paris','EUR|FR|FR012|PARIS','Europe/Brussels'),
-		(3,'New York','NAM|US|NY|NEW YORK','America/New_York');
+		(3,'New York','NAM|US|NJ|NEWARK','America/New_York');
 	
 	");
-		
+	
+	
+	
+	$this->db->query("DROP TABLE IF EXISTS `clockadmin`");
+	
+	$this->db->query("CREATE TABLE `clockadmin` (
+	  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `country1` int(11) DEFAULT NULL,
+	  `country2` int(11) DEFAULT NULL,
+	  `country3` int(11) DEFAULT NULL,
+	  `country4` int(11) DEFAULT NULL,
+	  `language` int(11) DEFAULT NULL,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+	
+		$this->db->query("INSERT INTO `clockadmin` (`id`, `country1`, `country2`, `country3`, `country4`, `language`)
+VALUES
+	(1,2,NULL,NULL,NULL,NULL);");
 	}
 	
 	

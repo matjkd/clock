@@ -36,7 +36,7 @@ class Clockadmin extends CI_Controller {
 		
 		
 		
-		redirect('/');
+		redirect('');
 	}
 	
 	

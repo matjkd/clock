@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title><Clock</title>
+        <title>Clock</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		
         <link rel="stylesheet" type="text/css" href="css/jquery.jdigiclock.css" />
@@ -23,22 +23,20 @@
 			
 		endforeach;
 		
-		function get_timezone_offset($remote_tz, $origin_tz = null) {
-		    if($origin_tz === null) {
-		        if(!is_string($origin_tz = date_default_timezone_get())) {
-		            return false;
-		          //  TC timestamp was returned -- bail out!
-		        }
-		    }
-		    $origin_dtz = new DateTimeZone($origin_tz);
-		    $remote_dtz = new DateTimeZone($remote_tz);
-		    $origin_dt = new DateTime("now", $origin_dtz);
-		    $remote_dt = new DateTime("now", $remote_dtz);
-		    $offset = $origin_dtz->getOffset($origin_dt) - $remote_dtz->getOffset($remote_dt);
-		    return $offset;
-		}
+		$dateTimeZoneRemote = new DateTimeZone($timezone);
+		$dateTimeZoneLocal = new DateTimeZone("UTC");
+
+		// Create two DateTime objects that will contain the same Unix timestamp, but
+		// have different timezones attached to them.
+		$dateTimeRemote = new DateTime("now", $dateTimeZoneRemote);
+		$dateTimeLocal = new DateTime("now", $dateTimeZoneLocal);
 		
-		$offset = get_timezone_offset($timezone, NULL);
+		// Calculate the GMT offset for the date/time contained in the $dateTimeTaipei
+		// object, but using the timezone rules as defined for Tokyo
+		// ($dateTimeZoneJapan).
+		$offset = $dateTimeZoneLocal->getOffset($dateTimeRemote);
+		
+		
 		
 		
 		?>
@@ -65,7 +63,7 @@
       <li id="min"></li>
       
   </ul>
-  <div id="city"><a href="<?=base_url()?>"><?=$city?></a></div>
+  <div id="city"><a href="<?=base_url()?>"><?=$city?> <?=$offset?></a></div>
 
 </div>
 	</div>		
@@ -78,6 +76,8 @@
 
 	// Create a newDate() object
 	var newDate = new Date();
+	
+	
 	// Extract the current date from Date object
 	newDate.setDate(newDate.getDate());
 	// Output the day, date, month and year   

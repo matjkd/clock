@@ -83,7 +83,7 @@
 	
 	number = parseInt(number) + 1;
 				
-	},6000);
+	},20000);
 	
 	
 	

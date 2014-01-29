@@ -19,24 +19,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->dbutil();	
-		if (!$this->dbutil->database_exists('clock'))
-			{
-			  //create database..
-			  $this->dbforge->create_database('clock');
-			  
-			}
 		
-		$admin = $this->admin_model->get_admin();
-		
-		
-		foreach($admin as $row):
-			
-			$data['country1'] = $this->admin_model->get_city($row->country1);
-			
-		endforeach;
-		$this -> load -> vars($data);
-		$this->load->view('main');
+	 $this->view_clock();
 	}
 	
 	
@@ -49,6 +33,9 @@ class Welcome extends CI_Controller {
 			  $this->dbforge->create_database('clock');
 			  
 			}
+			
+			
+		$this->admin_model->update_countries();
 		
 		$admin = $this->admin_model->get_admin();
 		

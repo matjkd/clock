@@ -61,7 +61,7 @@
 	
 	setInterval( function() {
 	//$('#hours2').empty();
-	if(number == 5){ number = 1 }
+	if(number == 4){ number = 1; }
 	
 	
 	

@@ -66,29 +66,24 @@
 	
 	
 	
+	
 	setTimeout( function() {
 	
-		$('#targetwrap').stop().fadeOut();
-	},1000);
+	$('#targetwrap').fadeOut(500, function() {
+	$('#target').load('<?=base_url()?>index.php/welcome/ajaxclock/' + number);
+	});
+	},2000);
 	
-	
-	
-	
-	
-	
-	loadClock(number);
 	
 	
 	setTimeout( function() {
 	
-		$('#targetwrap').stop().fadeIn();
-	},1000);
-	
+	$('#targetwrap').fadeIn();
+	},2000);
 	
 	number = parseInt(number) + 1;
-	
-			
-	},12000);
+				
+	},6000);
 	
 	
 	

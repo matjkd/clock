@@ -50,6 +50,7 @@ class Welcome extends CI_Controller {
 	}
 	public function ajaxclock($version = NULL)
 	{
+		
 		$this->load->dbutil();	
 		if (!$this->dbutil->database_exists('clock'))
 			{
@@ -60,7 +61,9 @@ class Welcome extends CI_Controller {
 		
 		$admin = $this->admin_model->get_admin();
 		
+		if($version == NULL) { $version = 1; }
 		
+		$data['version'] = $version;
 		
 		foreach($admin as $row):
 			
@@ -69,6 +72,12 @@ class Welcome extends CI_Controller {
 			}
 			if($version == 2) {
 			$data['country'] = $this->admin_model->get_city($row->country2);
+			}
+			if($version == 3) {
+			$data['country'] = $this->admin_model->get_city($row->country3);
+			}
+			if($version == 4) {
+			$data['country'] = $this->admin_model->get_city($row->country4);
 			}
 			
 		endforeach;

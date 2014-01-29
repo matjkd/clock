@@ -46,7 +46,7 @@ class Admin_model extends CI_Model {
 	
 		$this->db->query("INSERT INTO `clockadmin` (`id`, `country1`, `country2`, `country3`, `country4`, `language`)
 VALUES
-	(1,2,NULL,NULL,NULL,NULL);");
+	(1,1,2,3,4,NULL);");
 	}
 	
 	

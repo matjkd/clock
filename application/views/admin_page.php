@@ -6,7 +6,19 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 		<script type="text/javascript" src="lib/jquery-1.3.2.min.js"></script>
+<style>
+body {
+font-size: 30px;
+text-align:center;
+}
 
+select, input {
+font-size: 40px;
+text-align:center;
+margin:5px;
+padding:30px;
+}
+</style>
 	</head>
 	<body>
 		<a href="<?=base_url() ?>">Back to Clock...</a>
@@ -38,18 +50,7 @@
 		<?=form_close()?>
 		
 		<div>
-		<?php
 		
-		echo "TIME test<br/>";
-		//$test = new DateTimeZone('America/New_York');
-		//$time =  new DateTime("now", $test);
-		//echo DateTime();
-		date_default_timezone_set('Europe/London');
-		
-		
-		echo date('l jS \of F Y h:i:s A');
-
-		?>
 		</div>
 	</body>
 </html>

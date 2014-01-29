@@ -16,10 +16,13 @@
     </head>
     <body>
      <input type="hidden" id="baseurl" value="<?= base_url() ?>"/> 
-    <div id="target" style="display:none;">
+    <div id="targetwrap" style="display:none; position:absolute; opacity:1; margin:0 auto; width:95%; " >
+    <div id="target" style="display:block; position:relative; opacity:1;">
     
     </div>
-		<?php
+    </div>
+    
+    		<?php
 		
 		foreach($country as $row):
 			
@@ -40,9 +43,76 @@
 		
 <script type="text/javascript">
 		
+		
 	$(document).ready(function() {
+	$.ajaxSetup({ cache: false });
 	var clockversion = 1;
-	$('#target').stop().load('<?=base_url()?>index.php/welcome/ajaxclock/1',{},function(){$('#target').fadeIn(1000)});
+	var newDate;
+	
+	loadClock(1);
+	
+	setTimeout( function() {
+	
+	$('#targetwrap').fadeIn();
+	},1000);
+	
+	
+	var number = 1;
+	
+	setInterval( function() {
+	//$('#hours2').empty();
+	if(number == 5){ number = 1 }
+	
+	
+	
+	
+	setTimeout( function() {
+	
+		$('#targetwrap').stop().fadeOut();
+	},1000);
+	
+	
+	
+	
+	
+	
+	loadClock(number);
+	
+	
+	setTimeout( function() {
+	
+		$('#targetwrap').stop().fadeIn();
+	},1000);
+	
+	
+	number = parseInt(number) + 1;
+	
+			
+	},12000);
+	
+	
+	
+	function nextclock() {		
+	
+	setTimeout( function() {
+	
+	('#targetwrap').stop().fadeIn(500);
+	},1000);
+	
+	}
+	
+	function loadClock(e) {
+	
+	$('#target').load('<?=base_url()?>index.php/welcome/ajaxclock/' + e);	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 		
 		

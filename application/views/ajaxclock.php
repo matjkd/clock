@@ -35,7 +35,7 @@
 <div class="clock">
 <a href="<?=base_url()?>index.php/clockadmin"><div id="Date"></div></a>
   <ul>
-      <li id="hours2"></li>
+      <li id="hours<?=$version?>"></li>
       <li id="point">:</li>
       <li id="min"></li>
       
@@ -57,8 +57,18 @@
 	var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 	// Create a newDate() object
-	var newDate = new Date();
+	var hourtimer = '';
+	var offset = '';
+	var diff = '';
+	var time = '';
+	var hours2 = '';
+	$('#hours2').empty();
 	
+	clearInterval(hourtimer);
+		$('#hours2').html('');
+		$('#Date').html('');
+		
+	 newDate = new Date();
 	
 	// Extract the current date from Date object
 	newDate.setDate(newDate.getDate());
@@ -79,8 +89,10 @@
 		$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
 	    },1000);
 	
-	setInterval( function() {
+	hourtimer = setInterval( function() {
+	
 		// Create a newDate() object and extract the hours of the current time on the visitor's
+		$('#hours<?=$version?>').html('');
 		var hours2 = new Date().getHours();
 		var offset = parseInt(<?=$timediff?>);
 		var diff = hours2 + offset;
@@ -89,7 +101,7 @@
 		var time =  diff;
 		
 		// Add a leading zero to the hours value
-		$("#hours2").html(( time < 10 ? "0" : "" ) + time);
+		$("#hours<?=$version?>").html(( time < 10 ? "0" : "" ) + time);
 	    }, 1000);	
 	});
 	</script>
@@ -98,58 +110,13 @@
 	            		
 	            	$(function() {
 	            	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>"});
-					$('#digiclock2').jdigiclock({weatherLocationCode: "<?=$weather?>"});
+					
 	            	
 	            	
-					startRefresh();
+					//startRefresh();
 					});
 					
-					function startRefresh() {
-						var clockgo;
-						
-					    setTimeout(startRefresh,100000);
-					    
-					    if($('#clock1_wrap').is(':visible')) {
-					    $('#digiclock2').jdigiclock({weatherLocationCode: "<?=$weather?>"});
-					   //alert('clock1 is visible');
-					    clockgo = 1;
-					    }
-					    
-					  	if($('#clock2_wrap').is(':visible'))  {
-					  	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>"});
-					  	// alert('clock2 is visible');
-					    clockgo = 2;
-					    }
-					    
-					    if( clockgo == 1) {
-					    
-					     $('#clock2_wrap').stop().fadeIn(1500).delay(1500);
-					     $('#clock1_wrap').stop().fadeOut(1500).delay(1500);
-					     
-					    // alert('1 activated');
-					     
-					    // $('#digiclock2').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
-					     
-					     
-					    }
-					    
-					   
-					    if( clockgo == 2) {
-					    
-					     $('#clock1_wrap').stop().fadeIn(1500).delay(1500);
-					     $('#clock2_wrap').stop().fadeOut(1500).delay(1500);
-					     
-					   //  alert('2 activated');
-					     
-					    // $('#digiclock1').jdigiclock({weatherLocationCode: "EUR|UK|UK001|LONDON"});
-					     
-					     
-					    }
-					     
-					   
-					   
-					    //$('#digiclock').fadeIn(1500);
-					}
+					
 					
 	           
 	                

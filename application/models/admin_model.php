@@ -25,7 +25,8 @@ class Admin_model extends CI_Model {
 	VALUES
 		(1,'London','EUR|UK|UK001|LONDON','Europe/London'),
 		(2,'Paris','EUR|FR|FR012|PARIS','Europe/Brussels'),
-		(3,'New York','NAM|US|NJ|NEWARK','America/New_York');
+		(3,'Houston, TX','NAM|US|TX|HOUSTON','US/Central'),
+		(4,'New York','NAM|US|NJ|NEWARK','America/New_York');
 	
 	");
 	

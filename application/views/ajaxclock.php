@@ -1,24 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Clock</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		
-        <link rel="stylesheet" type="text/css" href="css/jquery.jdigiclock.css" />
-        <script type="text/javascript" src="lib/jquery-1.3.2.min.js"></script>
-        <script type="text/javascript" src="lib/jquery.jdigiclock.js"></script>
-        
-        
-      
-    </head>
-    <body>
-    <div id="target">
-    
-    </div>
+
+ <input type="hidden" id="baseurl" value="<?= base_url() ?>"/> 
 		<?php
 		
-		foreach($country1 as $row):
+		foreach($country as $row):
 			
 			$timezone = $row->timezone;
 			$city = $row->city;
@@ -29,10 +13,11 @@
 		
 		date_default_timezone_set($timezone);
 		$timediff = (date('Z')/60)/60;
-		echo $timediff;
+		//echo $timediff;
 		//echo human_to_unix(date());
 		?>
-		 <input type="hidden" value="<?=date('H')?>"/>
+		
+	<input type="hidden" value="<?=date('H')?>"/>
 		
         <div id="wrap" style="position: relative; width: 1000px; margin: auto;">
          
@@ -66,7 +51,7 @@
 		
 	$(document).ready(function() {
 	
-	$('#target').load('<?=base_url()?>index.php/welcome/view_clock',{},function(){$('#target').fadeIn(1000)});
+	
 	// Create two variable with the names of the months and days in an array
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
 	var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
@@ -99,8 +84,12 @@
 		var hours2 = new Date().getHours();
 		var offset = parseInt(<?=$timediff?>);
 		var diff = hours2 + offset;
+		
+		if(offset < 0) { diff = hours2 + (offset + 24); }
+		var time =  diff;
+		
 		// Add a leading zero to the hours value
-		$("#hours2").html(( hours2 < 10 ? "0" : "" ) + diff);
+		$("#hours2").html(( time < 10 ? "0" : "" ) + time);
 	    }, 1000);	
 	});
 	</script>
@@ -111,12 +100,12 @@
 	            	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>"});
 					$('#digiclock2').jdigiclock({weatherLocationCode: "<?=$weather?>"});
 	            	
-	            var clockgo;
+	            	
 					startRefresh();
 					});
 					
 					function startRefresh() {
-						
+						var clockgo;
 						
 					    setTimeout(startRefresh,100000);
 					    
@@ -166,5 +155,4 @@
 	                
 	            });
 	        </script>
-    </body>
-</html>
+ 

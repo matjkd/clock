@@ -23,6 +23,12 @@
 		endforeach;
 		?>
 			<div><?=form_dropdown('City1', $citiesarray)?></div>
+			
+			<div><?=form_dropdown('City2', $citiesarray)?></div>
+			
+			<div><?=form_dropdown('City3', $citiesarray)?></div>
+			
+			<div><?=form_dropdown('City4', $citiesarray)?></div>
 
 		</div>
 		<div>
@@ -32,7 +38,18 @@
 		<?=form_close()?>
 		
 		<div>
+		<?php
 		
+		echo "TIME test<br/>";
+		//$test = new DateTimeZone('America/New_York');
+		//$time =  new DateTime("now", $test);
+		//echo DateTime();
+		date_default_timezone_set('Europe/London');
+		
+		
+		echo date('l jS \of F Y h:i:s A');
+
+		?>
 		</div>
 	</body>
 </html>

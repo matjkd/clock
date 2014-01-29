@@ -36,8 +36,61 @@ class Welcome extends CI_Controller {
 			
 		endforeach;
 		$this -> load -> vars($data);
-		$this->load->view('welcome_message');
+		$this->load->view('main');
 	}
+	
+	
+	public function view_clock($version = NULL)
+	{
+		$this->load->dbutil();	
+		if (!$this->dbutil->database_exists('clock'))
+			{
+			  //create database..
+			  $this->dbforge->create_database('clock');
+			  
+			}
+		
+		$admin = $this->admin_model->get_admin();
+		
+		
+		foreach($admin as $row):
+			
+			$data['country1'] = $this->admin_model->get_city($row->country1);
+			
+		endforeach;
+		$this -> load -> vars($data);
+		$this->load->view('main');
+	}
+	public function ajaxclock($version = NULL)
+	{
+		$this->load->dbutil();	
+		if (!$this->dbutil->database_exists('clock'))
+			{
+			  //create database..
+			  $this->dbforge->create_database('clock');
+			  
+			}
+		
+		$admin = $this->admin_model->get_admin();
+		
+		
+		
+		foreach($admin as $row):
+			
+			if($version == 1 || $version == NULL) {
+			$data['country'] = $this->admin_model->get_city($row->country1);
+			}
+			if($version == 2) {
+			$data['country'] = $this->admin_model->get_city($row->country2);
+			}
+			
+		endforeach;
+		$this -> load -> vars($data);
+		$this->load->view('ajaxclock');
+		
+	}
+	
+	
 	
 	
 	public function test()

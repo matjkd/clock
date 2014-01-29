@@ -85,7 +85,7 @@
 		var offset = parseInt(<?=$timediff?>);
 		var diff = hours2 + offset;
 		
-		if(offset < 0) { diff = hours2 + (offset + 24); }
+		if(diff < 0) { diff = 24 + diff; }
 		var time =  diff;
 		
 		// Add a leading zero to the hours value

@@ -83,6 +83,7 @@ VALUES
 		{
 		  // table does not exist
 		  echo "no admin table";
+		  $this->update_countries();
 		} 			
 		
 			}

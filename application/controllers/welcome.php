@@ -34,7 +34,7 @@ class Welcome extends CI_Controller {
 			  
 			}
 			
-			
+		$this->load->database();	
 		//$this->admin_model->update_countries();
 		
 		$admin = $this->admin_model->get_admin();

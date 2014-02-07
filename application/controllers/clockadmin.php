@@ -19,6 +19,7 @@ class Clockadmin extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->database();
 		$this->load->dbutil();	
 		$this->admin_model->update_countries();
 		
@@ -31,6 +32,7 @@ class Clockadmin extends CI_Controller {
 	}
 	
 	public function update_clock($clock_number, $city) {
+		$this->load->database();
 		$city1 = $this->input->post('City1');
 		$city2 = $this->input->post('City2');
 		$city3 = $this->input->post('City3');

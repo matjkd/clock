@@ -50,7 +50,7 @@ class Welcome extends CI_Controller {
 	}
 	public function ajaxclock($version = NULL)
 	{
-		
+		$this->load->database();
 		$this->load->dbutil();	
 		if (!$this->dbutil->database_exists('clock'))
 			{

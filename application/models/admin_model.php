@@ -72,8 +72,18 @@ VALUES
 	
 	
 	function get_admin() {
-			 $this->db->where('id', 1);
-	 	return $this -> db -> get('clockadmin') -> result();			
+		if ($this->db->table_exists('contacts') )
+		{
+		  // table exists
+		
+		$this->db->where('id', 1);
+	 	return $this -> db -> get('clockadmin') -> result();	
+	 	}
+		else
+		{
+		  // table does not exist
+		  echo "no admin table";
+		} 			
 		
 			}
 		

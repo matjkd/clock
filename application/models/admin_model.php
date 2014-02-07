@@ -72,7 +72,7 @@ VALUES
 	
 	
 	function get_admin() {
-		if ($this->db->table_exists('contacts') )
+		if ($this->db->table_exists('clockadmin') )
 		{
 		  // table exists
 		

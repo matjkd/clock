@@ -109,7 +109,7 @@
 	            $(document).ready(function() {
 	            		
 	            	$(function() {
-	            	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>"});
+	            	$('#digiclock1').jdigiclock({weatherLocationCode: "<?=$weather?>", weatherMetric: "<?=$temp?>"});
 					
 	            	
 	            	

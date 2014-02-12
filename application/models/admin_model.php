@@ -41,12 +41,14 @@ class Admin_model extends CI_Model {
 	  `country3` int(11) DEFAULT NULL,
 	  `country4` int(11) DEFAULT NULL,
 	  `language` int(11) DEFAULT NULL,
+	  `temp` varchar(1) DEFAULT NULL,
+	  `page` int(11) DEFAULT NULL,
 	  PRIMARY KEY (`id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
 	
-		$this->db->query("INSERT INTO `clockadmin` (`id`, `country1`, `country2`, `country3`, `country4`, `language`)
+		$this->db->query("INSERT INTO `clockadmin` (`id`, `country1`, `country2`, `country3`, `country4`, `language`, `temp`)
 VALUES
-	(1,1,2,3,4,NULL);");
+	(1,1,2,3,4,NULL, 'C');");
 	}
 	
 	

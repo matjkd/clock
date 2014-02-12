@@ -19,8 +19,18 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+	$this->load->database();		
+	$admin = $this->admin_model->get_admin();
 		
-	 $this->view_clock();
+		
+		foreach($admin as $row):
+			
+			$page = $row->page;
+			
+		endforeach;
+	
+	
+	 $this->view_clock($page);
 	}
 	
 	
@@ -39,6 +49,12 @@ class Welcome extends CI_Controller {
 		
 		$admin = $this->admin_model->get_admin();
 		
+		if($version == NULL) {
+			$data['version'] = 1;
+		} else {
+		$data['version'] = $version;
+		}
+		
 		
 		foreach($admin as $row):
 			
@@ -48,6 +64,8 @@ class Welcome extends CI_Controller {
 		$this -> load -> vars($data);
 		$this->load->view('main');
 	}
+
+
 	public function ajaxclock($version = NULL)
 	{
 		$this->load->database();
@@ -79,6 +97,7 @@ class Welcome extends CI_Controller {
 			if($version == 4) {
 			$data['country'] = $this->admin_model->get_city($row->country4);
 			}
+			$data['temp'] = $row->temp;
 			
 		endforeach;
 		$this -> load -> vars($data);

@@ -46,10 +46,10 @@
 		
 	$(document).ready(function() {
 	$.ajaxSetup({ cache: false });
-	var clockversion = 1;
+	var clockversion = <?=$version?>;
 	var newDate;
 	
-	loadClock(1);
+	loadClock(clockversion);
 	
 	setTimeout( function() {
 	
@@ -57,44 +57,16 @@
 	},1000);
 	
 	
-	var number = 1;
-	
-	setInterval( function() {
-	//$('#hours2').empty();
-	if(number == 4){ number = 1; }
-	
-	
-	
-	
-	
 	setTimeout( function() {
+		
 	
-	$('#targetwrap').fadeOut(500, function() {
-	$('#target').load('<?=base_url()?>index.php/welcome/ajaxclock/' + number);
-	});
-	},2000);
-	
-	
-	
-	setTimeout( function() {
-	
-	$('#targetwrap').fadeIn();
-	},2000);
-	
-	number = parseInt(number) + 1;
-				
+	location.reload();
 	},20000);
 	
 	
 	
-	function nextclock() {		
 	
-	setTimeout( function() {
 	
-	('#targetwrap').stop().fadeIn(500);
-	},1000);
-	
-	}
 	
 	function loadClock(e) {
 	

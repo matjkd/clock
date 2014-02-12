@@ -31,14 +31,14 @@
 <?=form_open('clockadmin/update_clock') ?>
 		<div class="form-group">
 		<?php
-
+$citiesarray[0] = 'none';
 			foreach ($cities as $row):
 
 				$citiesarray[$row -> id] = $row -> city;
 
 			endforeach;
 		?>
-			<div type="button"><?=form_dropdown('City1', $citiesarray) ?></div>
+			<div type="button"><?=form_dropdown('City1', $citiesarray, 1) ?></div>
 			
 			<div><?=form_dropdown('City2', $citiesarray) ?></div>
 			

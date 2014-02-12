@@ -57,12 +57,14 @@
 	},1000);
 	
 	
+	<?php if($refresh == 1) { ?>
 	setTimeout( function() {
 		
 	
 	location.reload();
-	},20000);
+	},<?=$refreshrate?>);
 	
+	<?php } ?>
 	
 	
 	

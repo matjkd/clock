@@ -26,11 +26,16 @@
 	</head>
 	<body>
 		 <div class="container">
-		<a href="<?=base_url() ?>">Back to Clock...</a>
-		
-<?=form_open('clockadmin/update_clock') ?>
-		<div class="form-group">
-		<?php
+		 	<div class="row">
+		 		<div class="col-lg-12">
+		 		<a href="<?=base_url() ?>">Back to Clock...</a>
+		 		</div>
+		 	</div>
+		 	<div class="row">
+		 		<?=form_open('clockadmin/update_clock') ?>
+		 		<div class="col-lg-6"><h2>Locations</h2>
+		 			
+		 			<?php
 $citiesarray[0] = 'none';
 			foreach ($cities as $row):
 
@@ -38,7 +43,7 @@ $citiesarray[0] = 'none';
 
 			endforeach;
 		?>
-			<div type="button"><?=form_dropdown('City1', $citiesarray, 1) ?></div>
+			<div><?=form_dropdown('City1', $citiesarray, 1) ?></div>
 			
 			<div><?=form_dropdown('City2', $citiesarray) ?></div>
 			
@@ -46,17 +51,44 @@ $citiesarray[0] = 'none';
 			
 			<div><?=form_dropdown('City4', $citiesarray) ?></div>
 
-		</div>
+
+
+	</div>
+		 		
+		 		<div class="col-lg-6">
+
+
+<?php $timeout = array(
 		
-	<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option1"> Fahreneit
+		10000 => '10 Seconds',
+		20000 => '20 seconds',
+		30000 => '30 seconds',
+		60000 => '1 Minute'
+		);?>
+		
+		<div><?=form_dropdown('timeout', $timeout) ?></div>
+		
+	<!-- <div class="btn-group" data-toggle="buttons"> -->
+  <label class="btn btn-primary"> 
+    <input type="radio" name="temp" id="option1" value="F"> Fahreneit
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="options" id="option2"> Centigrade
+    <input type="radio" name="temp" id="option2" value="C"> Centigrade
   </label>
   
+
 </div>
+		 		
+		 	</div>
+		
+		
+
+		<div class="form-group">
+		
+		</div>
+		
+		
+<!-- </div> -->
 		
 		<div>
 		<?=form_submit('submit', 'Submit') ?>

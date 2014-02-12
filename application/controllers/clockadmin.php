@@ -37,11 +37,14 @@ class Clockadmin extends CI_Controller {
 		$city2 = $this->input->post('City2');
 		$city3 = $this->input->post('City3');
 		$city4 = $this->input->post('City4');
+		$temp = $this->input->post('temp');
+		$timeout = $this->input->post('timeout');
 		$this->admin_model->edit_field('country1', $city1);
 		$this->admin_model->edit_field('country2', $city2);
 		$this->admin_model->edit_field('country3', $city3);
 		$this->admin_model->edit_field('country4', $city4);
-		
+		$this->admin_model->edit_field('temp', $temp);
+		$this->admin_model->edit_field('refreshrate', $timeout);
 		
 		
 		

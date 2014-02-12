@@ -43,12 +43,13 @@ class Admin_model extends CI_Model {
 	  `language` int(11) DEFAULT NULL,
 	  `temp` varchar(1) DEFAULT NULL,
 	  `page` int(11) DEFAULT NULL,
+	  `refreshrate` int(11) DEFAULT NULL,
 	  PRIMARY KEY (`id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
 	
-		$this->db->query("INSERT INTO `clockadmin` (`id`, `country1`, `country2`, `country3`, `country4`, `language`, `temp`)
+		$this->db->query("INSERT INTO `clockadmin` (`id`, `country1`, `country2`, `country3`, `country4`, `language`, `temp`, `page`, `refreshrate`)
 VALUES
-	(1,1,2,3,4,NULL, 'C');");
+	(1,1,2,3,4,NULL, 'C', 1, 10000);");
 	}
 	
 	
@@ -71,6 +72,8 @@ VALUES
 	 $this->db->where('id', $id);
 	 	return $this -> db -> get('countries') -> result();			
 	 }
+	
+	
 	
 	
 	function get_admin() {

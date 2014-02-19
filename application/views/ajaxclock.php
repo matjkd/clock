@@ -12,7 +12,7 @@
             $weather = str_replace("É", "E", $weather);
             $weather = str_replace("Ü", "U", $weather);
 
-$weather = "MEA|IL|IS005|TEL&nbsp;AVIV";
+//$weather = "MEA|IL|IS005|TEL&nbsp;AVIV";
 		endforeach;
 		
 		
@@ -21,7 +21,7 @@ $weather = "MEA|IL|IS005|TEL&nbsp;AVIV";
 		//echo $timediff;
 		//echo human_to_unix(date());
 		?>
-<?=$weather?>		
+		
 	<input type="hidden" value="<?=date('H')?>"/>
 		
         <div id="wrap" style="position: relative; width: 1000px; margin: auto;">

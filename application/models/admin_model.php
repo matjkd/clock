@@ -23,11 +23,11 @@ class Admin_model extends CI_Model {
 	
 	$this->db->query("INSERT INTO `countries` (`id`, `city`, `weather_code`, `timezone`)
 	VALUES
-		(7,'Houston','NAM|US|TX|HOUSTON','America/Chicago'),
-	(8,'Montreal','NAM|CA|QC|MONTRÉAL','America/Montreal'),
-	(9,'Vancouver','NAM|CA|BC|VANCOUVER','America/Vancouver'),
-	(10,'Calgary','NAM|CA|AB|CALGARY','America/Edmonton'),
-	(11,'Toronto','NAM|CA|ON|TORONTO','America/Toronto'),
+		(1,'Houston','NAM|US|TX|HOUSTON','America/Chicago'),
+	(2,'Montreal','NAM|CA|QC|MONTRÉAL','America/Montreal'),
+	(3,'Vancouver','NAM|CA|BC|VANCOUVER','America/Vancouver'),
+	(4,'Calgary','NAM|CA|AB|CALGARY','America/Edmonton'),
+	(5,'Toronto','NAM|CA|ON|TORONTO','America/Toronto'),
 	(12,'Buenos Aires','SAM|AR|AR007|BUENOS AIRES','America/Argentina/Buenos_Aires'),
 	(13,'Rio de Janeiro','SAM|BR|BR017|RIO DE JANEIRO','America/Brasilia'),
 	(14,'Brasilia','SAM|BR|BR007|BRASILIA','America/Brasilia'),

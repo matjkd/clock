@@ -8,6 +8,11 @@
 			$city = $row->city;
 			$weather = $row->weather_code;
 			
+            $weather = str_replace(" ", "&nbsp;", $weather);
+            $weather = str_replace("É", "E", $weather);
+            $weather = str_replace("Ü", "U", $weather);
+
+$weather = "MEA|IL|IS005|TEL&nbsp;AVIV";
 		endforeach;
 		
 		
@@ -16,7 +21,7 @@
 		//echo $timediff;
 		//echo human_to_unix(date());
 		?>
-		
+<?=$weather?>		
 	<input type="hidden" value="<?=date('H')?>"/>
 		
         <div id="wrap" style="position: relative; width: 1000px; margin: auto;">

@@ -73,7 +73,7 @@ $citiesarray[0] = 'none';
     <input type="radio" name="temp" id="option1" value="F"> Fahreneit
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="temp" id="option2" value="C"> Centigrade
+    <input type="radio" name="temp" id="option2" value="C" checked="checked"> Centigrade
   </label>
   
 

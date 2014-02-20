@@ -67,6 +67,7 @@
 	var diff = '';
 	var time = '';
 	var hours2 = '';
+    var mins = '';    
 	$('#hours2').empty();
 	
 	clearInterval(hourtimer);
@@ -103,7 +104,9 @@
 		var diff = hours2 + offset;
 		
 		if(diff < 0) { diff = 24 + diff; }
+        if(diff > 23) { diff = diff - 24; }
 		var time =  diff;
+      
 		
 		// Add a leading zero to the hours value
 		$("#hours<?=$version?>").html(( time < 10 ? "0" : "" ) + time);

@@ -16,7 +16,7 @@
     </head>
     <body>
      <input type="hidden" id="baseurl" value="<?= base_url() ?>"/> 
-    <div id="targetwrap" style="display:none; position:absolute; opacity:1; margin:0 auto; width:95%; " >
+    <div id="targetwrap" style="display:none; position:absolute; opacity:0.99; margin:0 auto; width:95%; " >
     <div id="target" style="display:block; position:relative; opacity:1;">
     
     </div>

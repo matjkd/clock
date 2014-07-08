@@ -19,10 +19,11 @@
 		date_default_timezone_set($timezone);
 		$timediff = (date('Z')/60)/60;
 		//echo $timediff;
-		//echo human_to_unix(date());
+		echo human_to_unix(date('Z'));
 		?>
-		
-	<input type="hidden" value="<?=date('H')?>"/>
+		TESTING... <?=date('i')?>
+	<input type="hidden" id="thehour" value="<?=date('H')?>"/>
+	<input type="hidden" id="theminute" value="<?=date('i')?>"/>
 		
         <div id="wrap" style="position: relative; width: 1000px; margin: auto;">
          
@@ -90,9 +91,9 @@
 	
 	setInterval( function() {
 		// Create a newDate() object and extract the minutes of the current time on the visitor's
-		var minutes = new Date().getMinutes();
+		var minutes =  $('#theminute').val();
 		// Add a leading zero to the minutes value
-		$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+		$("#min").html(minutes);
 	    },1000);
 	
 	hourtimer = setInterval( function() {
@@ -105,11 +106,11 @@
 		
 		if(diff < 0) { diff = 24 + diff; }
         if(diff > 23) { diff = diff - 24; }
-		var time =  diff;
+		var time =  $('#thehour').val();
       
 		
 		// Add a leading zero to the hours value
-		$("#hours<?=$version?>").html(( time < 10 ? "0" : "" ) + time);
+		$("#hours<?=$version?>").html(time);
 	    }, 1000);	
 	});
 	</script>

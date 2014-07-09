@@ -109,7 +109,7 @@ VALUES
 	
 	
 	function get_cities() {
-	
+	$this->db->order_by('city');
 	return $this -> db -> get('countries') -> result();		
 	
 	}

@@ -21,7 +21,7 @@
 		//echo $timediff;
 		echo human_to_unix(date('Z'));
 		?>
-		TESTING... <?=date('i')?>
+		Correct time -> <?=date('H')?>:<?=date('i')?>
 	<input type="hidden" id="thehour" value="<?=date('H')?>"/>
 	<input type="hidden" id="theminute" value="<?=date('i')?>"/>
 		
@@ -41,7 +41,7 @@
 <div class="clock">
 <a href="<?=base_url()?>index.php/clockadmin"><div id="Date"></div></a>
   <ul>
-      <li id="hours<?=$version?>"></li>
+      <li id="hours2"></li>
       <li id="point">:</li>
       <li id="min"></li>
       
@@ -88,29 +88,89 @@
 		// Add a leading zero to seconds value
 		$("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
 		},1000);
+		
+	//add time fix	
+	var minutefix = 0;
+	var fix = $('#theminute').val();
 	
+	if(new Date().getMinutes() != fix) { 
+	var jsmin = new Date().getMinutes(); 
+	minutefix = Math.abs(fix - jsmin);
+	
+	var correctHour = 0;
+	if(minutefix > 29)
+		{
+			 correctHour = 1;
+		}
+	}
+	
+	var hourfix = 0;
+	var jshour = new Date().getHours();
+	var phphour = $('#thehour').val();
+	
+	var timediff = phphour - jshour;
+	
+
+	alert(fix + " " + correctHour);	
+	
+
+	 
 	setInterval( function() {
 		// Create a newDate() object and extract the minutes of the current time on the visitor's
-		var minutes =  $('#theminute').val();
+		var minutes =  new Date().getMinutes()-(minutefix);
 		// Add a leading zero to the minutes value
-		$("#min").html(minutes);
+		if(minutes > 59){
+			minutes = minutes-60;
+		}
+		if(minutes < 0) {
+			minutes = minutes+60;
+		}
+		$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
 	    },1000);
+	    
+	    
+	    
 	
 	hourtimer = setInterval( function() {
 	
 		// Create a newDate() object and extract the hours of the current time on the visitor's
-		$('#hours<?=$version?>').html('');
+		$('#hours2').html('');
 		var hours2 = new Date().getHours();
-		var offset = parseInt(<?=$timediff?>);
-		var diff = hours2 + offset;
+		var diff = hours2 + timediff;
 		
 		if(diff < 0) { diff = 24 + diff; }
         if(diff > 23) { diff = diff - 24; }
-		var time =  $('#thehour').val();
+		var time =  diff;
+		var minutes =  new Date().getMinutes()-(minutefix);
+		if(minutes > 59){
+			minutes = minutes-60;
+		}
+		if(minutes < 0) {
+			minutes = minutes+60;
+		}
+		
+		
+		if(minutes > 29 && minutefix == 30) {
+			time = time - 1 + correctHour;
+			
+		}
+		
+		if(minutes > 29 && fix < 30 && minutefix == 30) {
+			time = time - 1;
+			
+		}
+		
+		
+		
+		if(minutes < 30 && minutefix == 30) {
+			time = time;
+			
+			}
+		
       
 		
 		// Add a leading zero to the hours value
-		$("#hours<?=$version?>").html(time);
+		$("#hours2").html(time);
 	    }, 1000);	
 	});
 	</script>

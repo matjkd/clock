@@ -21,7 +21,7 @@
 		//echo $timediff;
 		echo human_to_unix(date('Z'));
 		?>
-		Correct time -> <?=date('H')?>:<?=date('i')?>
+	<!--	Correct time -> <?=date('H')?>:<?=date('i')?> -->
 	<input type="hidden" id="thehour" value="<?=date('H')?>"/>
 	<input type="hidden" id="theminute" value="<?=date('i')?>"/>
 		
@@ -111,7 +111,7 @@
 	var timediff = phphour - jshour;
 	
 
-	alert(fix + " " + correctHour);	
+	//alert(fix + " " + correctHour);	
 	
 
 	 
@@ -170,7 +170,8 @@
       
 		
 		// Add a leading zero to the hours value
-		$("#hours2").html(time);
+		
+		$("#hours2").html(( time < 10 ? "0" : "") + time);
 	    }, 1000);	
 	});
 	</script>

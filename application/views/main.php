@@ -45,6 +45,7 @@
 		
 		
 	$(document).ready(function() {
+		
 	$.ajaxSetup({ cache: false });
 	var clockversion = <?=$version?>;
 	var newDate;
@@ -60,8 +61,15 @@
 	<?php if($refresh == 1) { ?>
 	setTimeout( function() {
 		
+		
+		var url = jQuery(this).attr('href');
+		$('#targetwrap').fadeOut(1000, function(){ location.reload(); });
+
 	
-	location.reload();
+	
+	
+		
+	
 	},<?=$refreshrate?>);
 	
 	<?php } ?>

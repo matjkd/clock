@@ -3,7 +3,7 @@
 $location = $_GET['location'];
 $metric = (int)$_GET['metric'];
 
-$url = 'http://wwwa.accuweather.com/adcbin/forecastfox/weather_data.asp?location=' . $location . '&metric=' . $metric;
+$url = 'http://www.accuweather.com/adcbin/forecastfox/weather_data.asp?location=' . $location . '&metric=' . $metric;
 //$url = 'http://rainmeter.accu-weather.com/widget/rainmeter/weather-data.asp?location=' . $location . '&metric=' . $metric;
 
 $ch = curl_init();

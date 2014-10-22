@@ -28,7 +28,7 @@
         <div id="wrap" style="position: relative; width: 1000px; margin: auto;">
          
          <div id="clock1_wrap" style="position:absolute; height:200px; border:0px solid #000; display:block;  text-align: center; margin: 0 auto; width: 1000px;">
-  	<div  id="digiclock1"></div>
+  	<div  id="weather"></div>
   	</div>
 
 
@@ -176,6 +176,24 @@
 	});
 	</script>
 	        <script type="text/javascript">
+	        // Docs at http://simpleweatherjs.com
+$(document).ready(function() {
+  $.simpleWeather({
+    location: '<?=$weather?>',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+     
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+	        
 	            $(document).ready(function() {
 	            		
 	            	$(function() {

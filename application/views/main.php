@@ -5,13 +5,14 @@
         <title>Clock</title>
          <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/ui-lightness/jquery-ui.css" />
       <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/style.css" />
+       <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/weather.css" />
 		
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/jquery.jdigiclock.css" />
         <script type="text/javascript" src="<?=base_url()?>lib/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="<?=base_url()?>lib/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<?=base_url()?>lib/jquery.jdigiclock.js"></script>
         
-        
+         <script type="text/javascript" src="<?=base_url()?>simpleweather/jquery.simpleWeather.js"></script>
       
     </head>
     <body>
